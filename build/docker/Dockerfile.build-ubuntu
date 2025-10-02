@@ -27,7 +27,7 @@ RUN printf '/LIBS/GUID = "%s"\n' `uuidgen` > /root/.ncbi/user-settings.mkfg
 RUN printf '/libs/cloud/report_instance_identity = "true"\n' >> /root/.ncbi/user-settings.mkfg
 RUN printf '/libs/cloud/accept_aws_charges = "true"\n/libs/cloud/accept_gcp_charges = "true"\n' >> /root/.ncbi/user-settings.mkfg
 
-FROM ubuntu:latest
+FROM ubuntu:24.10
 COPY --from=build /etc/ncbi /etc/ncbi
 COPY --from=build /usr/local/ncbi /usr/local/ncbi
 COPY --from=build /root/.ncbi /root/.ncbi
